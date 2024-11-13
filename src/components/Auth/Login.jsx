@@ -20,8 +20,9 @@ function Login() {
 
   const onSubmit = (data) => {
     axios
-      .post(`https://auditor-backend-v5v2.vercel.app/auth/login`, data,{
-        withCredentials: true,  // Important if you are using cookies for session management
+      // .post(`https://auditor-backend-v5v2.vercel.app/auth/login`, data,{
+      .post(`http://localhost:8000/auth/login`, data,{
+        withCredentials: true,  
       })
       .then((res) => {
         if (res && res.data.token) {
