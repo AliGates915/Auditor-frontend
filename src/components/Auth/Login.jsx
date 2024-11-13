@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
@@ -21,7 +21,7 @@ function Login() {
   const onSubmit = (data) => {
     axios
       .post(`https://auditor-backend-v5v2.vercel.app/auth/login`, data,{
-        withCredentials: true,  
+        withCredentials: false,  
       })
       .then((res) => {
         if (res && res.data.token) {
