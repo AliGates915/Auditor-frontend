@@ -20,7 +20,7 @@ function Login() {
 
   const onSubmit = (data) => {
     axios
-      .post(`${process.env.REACT_APP_API}/auth/login`, data)
+      .post(`https://auditor-backend-v5v2.vercel.app/auth/login`, data)
       .then((res) => {
         if (res && res.data.token) {
           const token = res.data.token;
