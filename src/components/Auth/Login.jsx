@@ -18,12 +18,9 @@ function Login() {
     setPasswordVisible(!passwordVisible);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (data) => {
     axios
-      .post(`https://auditor-backend-v5v2.vercel.app/auth/login`, {
-        email: 'ali@gmail.com',
-        password: '2211',
-      }, {
+      .post(`https://auditor-backend-v5v2.vercel.app/auth/login`, data,{
         withCredentials: true,  // Important if you are using cookies for session management
       })
       .then((res) => {
