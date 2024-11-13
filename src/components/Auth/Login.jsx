@@ -18,9 +18,14 @@ function Login() {
     setPasswordVisible(!passwordVisible);
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = () => {
     axios
-      .post(`https://auditor-backend-v5v2.vercel.app/auth/login`, data)
+      .post(`https://auditor-backend-v5v2.vercel.app/auth/login`, {
+        username: 'ali@gmail.com',
+        password: '2211',
+      }, {
+        withCredentials: true,  // Important if you are using cookies for session management
+      })
       .then((res) => {
         if (res && res.data.token) {
           const token = res.data.token;
