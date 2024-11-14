@@ -24,6 +24,7 @@ function Login() {
         withCredentials: true,  
       })
       .then((res) => {
+        
         if (res && res.data.token) {
           const token = res.data.token;
           console.log(token);
@@ -40,6 +41,13 @@ function Login() {
       })
       .catch((err) => {
         console.error("Error during login request:", err);
+        if (err.response) {
+          // Server responded with a status code not in the 2xx range
+          console.error('Response data:', err.response.data);
+        } else if (err.request) {
+          // Request made but no response received
+          console.error('No response received:', err.request);
+        }
         if (err.response && err.response.data && err.response.data.message) {
           alert(`Login failed: ${err.response.data.message}`);
         } else {
