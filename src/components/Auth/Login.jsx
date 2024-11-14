@@ -21,7 +21,7 @@ function Login() {
   const onSubmit = (data) => {
     axios
       .post(`https://auditor-backend-v5v2.vercel.app/auth/login`, data,{
-        withCredentials: false,  
+        withCredentials: true,  
       })
       .then((res) => {
         if (res && res.data.token) {
