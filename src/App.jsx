@@ -29,7 +29,6 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Login users={users}/>} />
-        <Route path='/login' element={<Login users={users}/>}/>
         <Route
           path="/signup"
           element={<SignUp setUsers={setUsers} users={users} />}
