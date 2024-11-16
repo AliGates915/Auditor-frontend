@@ -21,10 +21,14 @@ function Login() {
   const onSubmit = (data) => {
     axios
       .post(`https://auditor-backend-v5v2.vercel.app/auth/login`, data,{
+      // .post(`http://localhost:8000/auth/login`, data,{
         withCredentials: true,  
+        headers: {
+          'Content-Type': 'application/json',
+        },
       })
       .then((res) => {
-        
+        console.log('data', data);
         if (res && res.data.token) {
           const token = res.data.token;
           console.log(token);
@@ -36,7 +40,7 @@ function Login() {
           }
         } else {
           alert("Login failed. No token generated. Redirecting to signup.");
-          navigate("/");
+          navigate("/dashboard");
         }
       })
       .catch((err) => {
