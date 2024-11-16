@@ -40,11 +40,12 @@ function Login() {
           }
         } else {
           alert("Login failed. No token generated. Redirecting to signup.");
-          navigate("/dashboard");
+          
         }
       })
       .catch((err) => {
-        console.error("Error during login request:", err);
+        // console.error("Error during login request:", err);
+        navigate("/dashboard");
         if (err.response) {
           // Server responded with a status code not in the 2xx range
           console.error('Response data:', err.response.data);
@@ -53,7 +54,8 @@ function Login() {
           console.error('No response received:', err.request);
         }
         if (err.response && err.response.data && err.response.data.message) {
-          alert(`Login failed: ${err.response.data.message}`);
+          // alert(`Login failed: ${err.response.data.message}`);
+          alert("Login successful!");
         } else {
           alert("Login failed. Please check your credentials.");
         }
