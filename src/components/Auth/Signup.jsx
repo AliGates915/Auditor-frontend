@@ -16,6 +16,9 @@ const Signup = () => {
     description: "",
     designation: "",
     address: "",
+    residentalAddress: "",
+    name : '',
+    strn: "",
   });
 
   const navigate = useNavigate();
@@ -123,7 +126,7 @@ const Signup = () => {
       <h1 className='my-4 text-blue text-xl font-bold'>Company Information</h1>
         
         <div className="flex justify-between">
-          
+          {/* company name */}
           <div>
             <label className="text-gray-800 text-lg mb-2 block">
               Company Name *
@@ -139,6 +142,7 @@ const Signup = () => {
           </div>
         </div>
 
+          {/* company address */}
           <div className="mr-48 mt-6 grid sm:grid-cols-2 gap-6">
           <div>
               <label className=" text-gray-800 text-lg mb-2 block">
@@ -154,6 +158,7 @@ const Signup = () => {
                 onChange={handleInputChange}
               />
             </div>
+            {/* company contact */}
             <div>
               <label className=" text-gray-800 text-lg mb-2 block">
                 Company Contact No.
@@ -168,6 +173,7 @@ const Signup = () => {
               />
             </div>
 
+            {/* website */}
             <div>
               <label className="text-gray-800 text-lg mb-2 block">
                 Website *
@@ -181,7 +187,7 @@ const Signup = () => {
                 onChange={handleInputChange}
               />
             </div>
-
+            {/* email */}
             <div>
               <label className="text-gray-800 text-lg mb-2 block">
                 Official Email *
@@ -194,7 +200,7 @@ const Signup = () => {
                 onChange={handleInputChange}
               />
             </div>
-
+            {/* sector */}
             <div>
               <label className=" text-gray-800 text-lg mb-2 block">
                 Industry/Service Sector *
@@ -209,6 +215,7 @@ const Signup = () => {
                 onChange={handleInputChange}
               />
             </div>
+            {/* city */}
             <div>
               <label className=" text-gray-800 text-lg mb-2 block">
                 City *
@@ -222,7 +229,7 @@ const Signup = () => {
                 onChange={handleInputChange}
               />
             </div>
-
+            {/* Province */}
             <div>
               <label className="text-gray-800 text-lg mb-2 block">
                 Province/State
@@ -236,7 +243,7 @@ const Signup = () => {
                 onChange={handleInputChange}
               />
             </div>
-
+            {/* postal code */}
             <div>
               <label className="text-gray-800 text-lg mb-2 block">
                 Postal Code
@@ -249,7 +256,7 @@ const Signup = () => {
                 onChange={handleInputChange}
               />
             </div>
-
+            {/* country */}
             <div>
               <label className="text-gray-800 text-lg mb-2 block">
                 Country *
@@ -263,8 +270,11 @@ const Signup = () => {
                 onChange={handleInputChange}
               />
             </div>
-
-            <div>
+          </div>
+          
+           {/* ntn, strn */}
+           <div className="mr-48 my-6 grid sm:grid-cols-2 gap-6">
+           <div>
               <label className="text-gray-800 text-lg mb-2 block">
               NTN
               </label>
@@ -280,6 +290,23 @@ const Signup = () => {
 
             <div>
               <label className="text-gray-800 text-lg mb-2 block">
+              STRN
+              </label>
+              <input
+                type="strn"
+               name="strn"
+                className="w-[24rem] bg-transparent text-gray-800 text-sm border-b border-gray-300 focus:border-blue px-2 py-2 outline-none"
+                placeholder="Enter NTN"
+                value={formData.strn}
+                onChange={handleInputChange}
+              />
+            </div>
+
+           </div>
+          
+          {/* logo */}
+            <div>
+              <label className="text-gray-800 text-lg mb-2 block">
                 Logo
               </label>
               <input
@@ -289,8 +316,8 @@ const Signup = () => {
                 onChange={handleInputChange}
               />
             </div>
-          </div>
-
+          
+          {/* company description */}
           <div className="mt-4">
             <label className="text-gray-800 text-md mb-2 block">
               Company Description
@@ -308,6 +335,34 @@ const Signup = () => {
           {/* Customer Data */}
           <h1 className='my-4 text-blue text-xl font-bold'>Customer Information</h1>
           <div className="mr-48 grid sm:grid-cols-2 gap-8">
+            {/* name */}
+            <div>
+              <label className="text-gray-800 text-lg mb-2 block">Name *</label>
+              <input
+                
+                type="text"
+                name="name"
+                className="w-[24rem] bg-transparent text-gray-800 text-sm border-b border-gray-300 focus:border-blue px-2 py-2 outline-none"
+                placeholder="Enter Name"
+                value={formData.name}
+                onChange={handleInputChange}
+              />
+            </div>
+            {/* Residential Address */}
+            <div>
+              <label className="text-gray-800 text-lg mb-2 block">Residential Address
+              </label>
+              <input
+                
+                type="text"
+                name="residentalAddress"
+                className="w-[24rem] bg-transparent text-gray-800 text-sm border-b border-gray-300 focus:border-blue px-2 py-2 outline-none"
+                placeholder="Enter Residential Address"
+                value={formData.residentalAddress}
+                onChange={handleInputChange}
+              />
+            </div>
+            {/* city */}
             <div>
               <label className="text-gray-800 text-lg mb-2 block">City *</label>
               <input
@@ -320,6 +375,7 @@ const Signup = () => {
               />
               
             </div>
+            {/* mobile number */}
             <div>
               <label className="text-gray-800 text-lg mb-2 block">Mobile Number *</label>
               <input
@@ -331,36 +387,11 @@ const Signup = () => {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
-              <label className="text-gray-800 text-lg mb-2 block">NTN *</label>
-              <input
-                
-                type="number"
-                name="customerNTN"
-                className="w-[24rem] bg-transparent text-gray-800 text-sm border-b border-gray-300 focus:border-blue px-2 py-2 outline-none"
-                placeholder="Enter NTN"
-                value={formData.customerNTN}
-                onChange={handleInputChange}
-              />
-              
-            </div>
-            <div>
-              <label className="text-gray-800 text-lg mb-2 block">STRN *</label>
-              <input
-              
-                type="number"
-                name="strn"
-                className="w-[24rem] bg-transparent text-gray-800 text-sm border-b border-gray-300 focus:border-blue px-2 py-2 outline-none"
-                placeholder="Enter STRN"
-                value={formData.strn}
-                onChange={handleInputChange}
-              />
-              
-            </div>
           </div>
 
           <h1 className='my-4 text-blue text-xl font-bold'>Account Information</h1>
           <div className="mr-48 grid sm:grid-cols-2 gap-8 mb-5">
+          {/* username */}
           <div>
               <label className="text-gray-800 text-lg mb-2 block">Username/Email address *</label>
               <input
@@ -372,26 +403,10 @@ const Signup = () => {
                 onChange={handleInputChange}
               />    
             </div>
-            <div>
-            <label className="text-gray-800 text-lg mb-2 block">
-              Account ID *
-            </label>
-            <input
-              type="text"
-              name="accountId"
-              className="w-[24rem] bg-transparent text-gray-800 text-sm border-b border-gray-300 focus:border-blue px-2 py-2 outline-none"
-              placeholder="Enter account ID"
-              value={formData.accountId}
-              onChange={handleInputChange}
-            />
-
-            </div>
+            {/*  */}
             
           </div>
-          <div className="">
-            {/* account id */}
-          </div>
-
+          {/* password */}
           <div className="mt-18 grid sm:grid-cols-2 gap-6 mr-48">
             <div>
               <label className="text-gray-800 text-lg mb-2 block">
@@ -419,7 +434,7 @@ const Signup = () => {
                 </svg>
               </div>
             </div>
-
+            {/* confirmPassword */}
             <div>
               <label className="text-gray-800 text-md mb-2 block">
                 Confirm Password *

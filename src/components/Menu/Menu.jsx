@@ -18,6 +18,11 @@ const menuItems = [
         href: "/customers",
       },
       {
+        icon: "/teacher.png",
+        label: "Certification Bodies",
+        href: "/certification-bodies",
+      },
+      {
         icon: "/avatar.png",
         label: "Auditors Profile",
         href: "/auditors",
@@ -125,13 +130,14 @@ const Menu = () => {
   };
 
   return (
-    <div className=" mt-4 text-xs">
+    <div className="max-h-full mt-4 text-xs">
       {/* SEARCH BAR */}
       <div className="logo2 md:flex items-center gap-2 rounded-[5px] text-xs ring-[1.5px] ring-gray-600 px-2 mb-2">
         <input
           type="text"
           placeholder="Search..."
-          className="w-[145px] p-2 bg-transparent outline-none border-e-[1px] border-gray-600"
+          className="w-[145px] p-2 bg-transparent outline-none border-e-[1px] 
+          border-gray-600"
         />
         <span className="cursor-pointer">
         <FaSearch size={16} color="white"/>

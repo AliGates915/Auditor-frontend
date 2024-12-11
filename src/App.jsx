@@ -21,6 +21,9 @@ import AddQuestion from './components/Add Questions/AddQuestion'
 import Branch from './components/Branches/Branch'
 import Verification from './components/Verification/Verification'
 import CustomerDashboard from "./components/Dashboard/customer/CustomerDashboard";
+import CertificationBodies from "./components/Certificate/CertificationBodies";
+import NewCertificatesBody from "./components/Certificate/NewCertificate";
+import CompanyCard from "./components/CompanyCardDashboard/CompanyCard";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -29,6 +32,10 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<Login users={users}/>} />
+        <Route
+          path="/login"
+          element={<Login setUsers={setUsers} users={users} />}
+        />
         <Route
           path="/signup"
           element={<SignUp setUsers={setUsers} users={users} />}
@@ -84,6 +91,42 @@ function App() {
           }
         />
 
+        {/* Certificate Body */}
+        <Route
+          path="/certification-bodies"
+          element={
+            <Layout>
+              <div className="bg-[#ceeff5] w-full h-full">
+                <CertificationBodies />
+              </div>
+            </Layout>
+          }
+        />
+        {/* new Certificate body*/}
+        <Route
+          path="/new-certification-body"
+          element={
+            <Layout>
+              <div className="bg-[#ceeff5] w-full h-full">
+                <NewCertificatesBody />
+              </div>
+            </Layout>
+          }
+        />
+        <Route
+          path="/companyCard"
+          element={
+            <Layout>
+              <div className="bg-[#ceeff5] w-full h-full">
+                <CompanyCard />
+              </div>
+            </Layout>
+          }
+        />
+        <Route
+          path="/auditorProfile"   //Only Admin update
+          element={ <UpdateProfile />}
+        />
         {/* Auditors */}
         <Route
           path="/auditors"
